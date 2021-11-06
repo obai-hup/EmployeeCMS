@@ -1,0 +1,60 @@
+﻿@model Employee.Domain.ViewModel.CreateEmployerViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4 class="text-center bold font-weight-lighter"><i class="fas fa-plus"></i> New Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 d-flex  m-auto ">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="UserName" class="form-control" required autocomplete="off" placeholder="UserName" autofocus/>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="FirstName" class="form-control" required autocomplete="off" placeholder="FirstName" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="LastName" class="form-control" required autocomplete="off" placeholder="LastName" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="PhoneNumber" type="text" class="form-control" required autocomplete="off" placeholder="PhoneNumber"/>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryID" class="control-label"></label>
+                <select asp-for="CountryID" required class="form-control" asp-items="@ViewBag.Country">
+                    <option value="0">Please Choose A Country</option>
+
+                </select>
+                <span asp-validation-for="CountryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartID" class="control-label"></label>
+                <select asp-for="DepartID" class="form-control" asp-items="@ViewBag.department" required >
+                    <option value="0">Please Choose A Depatment</option>
+                </select>
+                <span asp-validation-for="DepartID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Create" class="btn btn-outline-primary form-control">
+                     <i class="fas fa-plus-square"></i> Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i>  Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

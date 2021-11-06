@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Employee.Domain.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class=""><i class="fas fa-puzzle-piece"></i> List Of Departments</h1>
+<hr />
+<p>
+    <a asp-action="Create" title="CreateNewDepartment" class="btn btn-outline-info"><i class="fa fa-plus"></i></a>
+</p>
+<table class="table table-bordered table-hover table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModifiedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModifiedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+            </td>
+            <td>
+                <a asp-controller="Departments" class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.ID"><i class="fas fa-edit"></i></a>
+                <a asp-controller="Departments" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.ID"><i class="far fa-trash"></i></a>
+                <a asp-controller="Departments" class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.ID"><i class="far fa-info"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

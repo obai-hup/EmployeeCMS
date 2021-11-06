@@ -1,0 +1,50 @@
+﻿@model Employee.Domain.ViewModel.EditDepartmentViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center"><i class="fas fa-edit "></i> Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 d-flex  m-auto ">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartName" class="control-label"></label>
+                <input asp-for="DepartName" class="form-control" />
+                <span asp-validation-for="DepartName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartNo" class="control-label"></label>
+                <input asp-for="DepartNo" class="form-control" />
+                <span asp-validation-for="DepartNo" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="LastModifiedBy" class="control-label"></label>
+                <input asp-for="LastModifiedBy" class="form-control" />
+                <span asp-validation-for="LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Save" class="btn btn-primary form-control">
+                    <i class="far fa-save"></i> Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i>  Back to List</a>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

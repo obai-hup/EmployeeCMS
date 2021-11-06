@@ -1,0 +1,45 @@
+﻿@model Employee.Domain.ViewModel.CreateDepartmentViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4 class="text-center bold font-weight-lighter"><i class="fas fa-plus"></i> New Department</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 d-flex  m-auto ">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepartName" class="control-label"></label>
+                <input asp-for="DepartName" class="form-control" required autocomplete="off"  autofocus/>
+                <span asp-validation-for="DepartName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartNo" class="control-label"></label>
+                <input asp-for="DepartNo" class="form-control" required  autocomplete="off"/>
+                <span asp-validation-for="DepartNo" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Create" class="btn btn-outline-primary form-control">
+                    <i class="fas fa-plus-square"></i> Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class=" text-left m-3">
+    <a asp-action="Index" class="btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i>  Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
