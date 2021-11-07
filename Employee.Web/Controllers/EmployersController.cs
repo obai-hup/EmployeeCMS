@@ -139,7 +139,14 @@ namespace Employee.Web.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Server Error , Please Contact admin");
             }
+            if(viewModel.CountryID == 0 && viewModel.DepartmentID == 0)
+            {
+                TempData["Error"] = "All Field its requierd";
+
+            }
+
             _EmployeeRepository.UpdateEmployer(viewModel);
+
             return RedirectToAction("Index");
         }
     }

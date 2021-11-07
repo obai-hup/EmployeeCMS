@@ -17,28 +17,28 @@
             </div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
+                <input asp-for="UserName" class="form-control" required />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
+                <input asp-for="FirstName" class="form-control" required />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
+                <input asp-for="LastName" class="form-control" required />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" type="text" class="form-control" />
+                <input asp-for="PhoneNumber" type="number" class="form-control" required />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CountryID" class="control-label"></label>
                 <select asp-for="CountryID" required class="form-control" asp-items="@ViewBag.Country">
-                    <option value="0">Please Choose A Country</option>
+                    <option value="">Please Choose A Country</option>
 
                 </select>
                 <span asp-validation-for="CountryID" class="text-danger"></span>
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label asp-for="DepartmentID" class="control-label"></label>
                 <select asp-for="DepartmentID" class="form-control" asp-items="@ViewBag.department" required>
-                    <option value="0">Please Choose A Depatment</option>
+                    <option value="">Please Choose A Depatment</option>
                 </select>
                 <span asp-validation-for="DepartmentID" class="text-danger"></span>
             </div>

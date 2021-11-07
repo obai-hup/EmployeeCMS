@@ -92,6 +92,10 @@ namespace Employee.API.Controllers
             {
                 return NotFound();
             }
+            if(!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "There is something wrong");
+            }
 
             _employerRepository.Update(EmployFromRepo.Id, UpdateDTO);
 

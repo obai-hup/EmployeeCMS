@@ -10,16 +10,19 @@ namespace Employee.Domain.ViewModel
 
     
         [Required, MinLength(4)]
-
+        [MaxLength(15)]
         public string UserName { get; set; }
 
 
         [Required(ErrorMessage = "First Name is a Required field.")]
         [DataType(DataType.Text)]
+        [MaxLength(25), MinLength(4)]
+
         [Display(Order = 1, Name = "FirstName")]
         [RegularExpression("^((?!^FirstName$)[a-zA-Z '])+$", ErrorMessage = "First name is required and must be properly formatted.")]
         public string FirstName { get; set; }
 
+        [MaxLength(25), MinLength(4)]
         [Required(ErrorMessage = "LastName is a Required field.")]
         [DataType(DataType.Text)]
         [Display(Order = 1, Name = "LastName")]
@@ -32,10 +35,11 @@ namespace Employee.Domain.ViewModel
         //ErrorMessage = "Phone is required and must be properly formatted.")]
         public string PhoneNumber { get; set; }
 
+        [Required]
         [Display(Name = "Country")]
         public int CountryID { get; set; }
 
-        
+        [Required]
         [Display(Name = "Department")]
         public int DepartID { get; set; }
 

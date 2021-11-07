@@ -12,14 +12,18 @@ namespace Employee.Domain
     {
         public int Id { get; set; }
 
+        [Required]
+        [ MinLength(4)]
+        [MaxLength(15)]
         public string UserName { get; set; }
 
-
+        [Required]
         public string FirstName { get; set; }
 
-
+        [Required]
         public string LastName { get; set; }
 
+        [Required]
         public string PhoneNumber { get; set; }
 
         public string FullName
@@ -40,11 +44,13 @@ namespace Employee.Domain
             }
         }
 
+        [Required]
         public int CountryID { get; set; }
         public virtual Country Country { get; set; }
 
+        [Required]
         public int DepartmentID { get; set; }
-
+        [Required]
         public virtual Department Department { get; set; }
     }
 }

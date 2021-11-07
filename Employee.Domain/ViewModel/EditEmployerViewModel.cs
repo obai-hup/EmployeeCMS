@@ -30,10 +30,12 @@ namespace Employee.Domain.ViewModel
         //ErrorMessage = "Phone is required and must be properly formatted.")]
         public string PhoneNumber { get; set; }
 
+        [Required]
         [Display(Name = "Country")]
         public int CountryId { get; set; }
         public Country Country { get; set; }
 
+        [Required]
         [Display(Name = "Department")]
         public int DepartId { get; set; }
         public Department Departments { get; set; }

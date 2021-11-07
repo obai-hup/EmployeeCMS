@@ -75,6 +75,9 @@ namespace Employee.Services.Repository
 
         public void  Update(int id , Employer entity)
         {
+
+
+           
             var employ = Get(id);
             employ.UserName = entity.UserName;
             employ.FirstName = entity.FirstName;
@@ -83,9 +86,13 @@ namespace Employee.Services.Repository
             employ.DepartmentID = entity.DepartmentID;
             employ.PhoneNumber = entity.PhoneNumber;
 
-            _context.Employers.Update(employ);
-
-             _context.SaveChanges();
+            if(employ != null)
+            {
+                _context.Employers.Update(employ);
+                _context.SaveChanges();
+            }
+            
+               
         }
     }
 }
